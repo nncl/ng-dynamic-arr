@@ -39,4 +39,8 @@ export class AppComponent {
 
         item.times.push(time);
     }
+
+    save(): void {
+        console.log(this.worktimes);
+    }
 }

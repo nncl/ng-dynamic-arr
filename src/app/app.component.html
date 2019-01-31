@@ -2,24 +2,32 @@
     {{worktimes | json}}
 </pre>
 
-<ul>
-    <li *ngFor="let item of worktimes">
-        {{item.name}}
+<form (submit)="save()" novalidate>
+    <ul>
+        <li *ngFor="let item of worktimes">
+            {{item.name}}
 
-        <div *ngFor="let time of item.times; let i = index">
-            <input type="text"
-                   [name]="'start-' + i"
-                   placeholder="Start"
-                   [(ngModel)]="time.start">
+            <div *ngFor="let time of item.times; let i = index">
+                <input type="text"
+                       [name]="'start-' + i + '-' + item.id"
+                       placeholder="Start"
+                       [(ngModel)]="time.start">
 
-            <input type="text"
-                   [name]="'end-' + i"
-                   placeholder="End"
-                   [(ngModel)]="time.end">
-        </div>
+                <input type="text"
+                       [name]="'end-' + i + '-' + item.id"
+                       placeholder="End"
+                       [(ngModel)]="time.end">
+            </div>
 
-        <button type="button" (click)="addTime(item)">
-            Add time
+            <button type="button" (click)="addTime(item)">
+                Add time
+            </button>
+        </li>
+    </ul>
+
+    <footer>
+        <button type="submit">
+            Send
         </button>
-    </li>
-</ul>
+    </footer>
+</form>
