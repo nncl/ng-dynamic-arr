@@ -31,7 +31,7 @@ export class AppComponent {
         });
     }
 
-    addTime(item: object): void {
+    addTime(item: any): void {
         const time = {
             start: null,
             end: null
